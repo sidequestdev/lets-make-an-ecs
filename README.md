@@ -17,3 +17,13 @@
   - Systems are functions that operate on one or more entities with components of interest
 
 System: A way to query for components and update them
+
+## Component
+
+- Will be an abstract class
+- Will have a proctected abstract name
+
+## Component Map
+
+- Should extend `Map` class
+- Will have convenience methods to add, remove, and get components

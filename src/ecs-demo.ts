@@ -56,7 +56,11 @@ class PhysicsSystem extends System {
   }
 
   update(world: World, dt: number) {
-    for (const [, componentMap] of world.view(Position, Velocity, Rectangle)) {
+    for (const [_entity, componentMap] of world.view(
+      Position,
+      Velocity,
+      Rectangle,
+    )) {
       // Move the position by some velocity
       const position = componentMap.get(Position);
       const velocity = componentMap.get(Velocity);
@@ -94,7 +98,11 @@ class RenderingSystem extends System {
   public update(world: World, _dt: number): void {
     this.context.clearRect(0, 0, canvas.width, canvas.height);
 
-    for (const [, componentMap] of world.view(Position, Color, Rectangle)) {
+    for (const [_entity, componentMap] of world.view(
+      Position,
+      Color,
+      Rectangle,
+    )) {
       const { color } = componentMap.get(Color);
       const { width, height } = componentMap.get(Rectangle);
       const { x, y } = componentMap.get(Position);
